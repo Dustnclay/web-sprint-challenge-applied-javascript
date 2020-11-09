@@ -21,7 +21,7 @@
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
-const cardCreator = () => {
+const cardCreator = ({heading, photo, name}) => {
 // Creating required card DOM elements
     const card = document.createElement('div')
     const cardHeadLine = document.createElement('div')
@@ -31,6 +31,7 @@ const cardCreator = () => {
     const cardSpan = document.createElement('span');
 
 // Appending child elements to parent elements
+    document.querySelector('.cards-container').appendChild(card)
     card.appendChild(cardHeadLine);
     card.appendChild(cardAuthor);
     cardAuthor.appendChild(imgContainer);
@@ -44,17 +45,23 @@ const cardCreator = () => {
     imgContainer.classList.add('img-container');
 
 // Adding text to elements
-    cardHeadLine.textContent = "Headline of article"
-    cardSpan.textContent = "By: "
-    
+    cardHeadLine.textContent = heading
+    cardSpan.textContent = 'By:' + name
+    cardImg.src = photo
+
+// Adding eventListener to card
+    card.addEventListener('click', () => {
+        console.log(cardHeadLine);
+    })
 
     return card; // This will return our new card element
 }
 
-console.log(cardCreator());
+console.log(cardCreator({}))
 
 
+// Using axios.get to send an HTTP GET REQUEST
 axios.get('https://lambda-times-api.herokuapp.com/articles')
- .then((successResponse) => {
-     console.log(successResponse);
+ .then((response) => {
+     console.log(response);
  });

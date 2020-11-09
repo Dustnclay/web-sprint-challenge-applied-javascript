@@ -28,15 +28,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is the DOM?
 
-- Document Object Model is
+- Document Object Model is an API to webpages that allows programs to read + manipulate the pages content, structure, and styles
 
 2. What is an event?
 
+- An occurance that happens inside of the DOM
+
 3. What is an event listener?
+
+- They are methods we can use to create many different "actions" and will usually be attached to an element
 
 4. Why would we convert a NodeList into an Array?
 
+- So that we can manipulate the data a lot more easier?
+
 5. What is a component?
+
+- A component is basically a JS function, (set of web platform API) That is made up of several parts HTML, CSS, and JS brought together for reuse in a website or application
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
