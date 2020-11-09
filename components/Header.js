@@ -23,6 +23,11 @@ function Header() {
     spanOne.classList.add('date');
     spanTwo.classList.add('temp');
 
+// Adding text
+    hOne.textContent = 'Lambda Times'
+    spanOne.textContent = 'MARCH 28, 2020'
+    spanTwo.textContent = '98°'
+
 // Appending children elements to parent element
     document.querySelector('.header-container').appendChild(header);
     header.appendChild(spanOne);
