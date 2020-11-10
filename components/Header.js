@@ -24,8 +24,8 @@ function Header() {
     spanTwo.classList.add('temp');
 
 // Adding text
-    hOne.textContent = 'Lambda Times'
     spanOne.textContent = 'MARCH 28, 2020'
+    hOne.textContent = 'Lambda Times'
     spanTwo.textContent = '98°'
 
 // Appending children elements to parent element
@@ -37,4 +37,4 @@ function Header() {
  return header;
     
 }
-console.log(Header());
+Header();
