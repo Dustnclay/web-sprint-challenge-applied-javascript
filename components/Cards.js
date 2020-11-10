@@ -21,8 +21,9 @@
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
-const cardCreator = ({heading, photo, name}) => {
-// Creating required card DOM elements
+
+const cardCreator = (data) => {
+// Creating required card elements
     const card = document.createElement('div')
     const cardHeadLine = document.createElement('div')
     const cardAuthor = document.createElement('div');
@@ -31,7 +32,6 @@ const cardCreator = ({heading, photo, name}) => {
     const cardSpan = document.createElement('span');
 
 // Appending child elements to parent elements
-    document.querySelector('.cards-container').appendChild(card)
     card.appendChild(cardHeadLine);
     card.appendChild(cardAuthor);
     cardAuthor.appendChild(imgContainer);
@@ -45,9 +45,9 @@ const cardCreator = ({heading, photo, name}) => {
     imgContainer.classList.add('img-container');
 
 // Adding text to elements
-    cardHeadLine.textContent = heading
-    cardSpan.textContent = 'By:' + name
-    cardImg.src = photo
+    cardHeadLine.textContent = data.headline
+    cardSpan.textContent = data.authorName
+    cardImg.src = data.authorPhoto
 
 // Adding eventListener to card
     card.addEventListener('click', () => {
@@ -57,11 +57,38 @@ const cardCreator = ({heading, photo, name}) => {
     return card; // This will return our new card element
 }
 
-console.log(cardCreator({}))
-
+const cardOne = document.querySelector('.cards-container')
+const cardTwo = document.querySelector('.cards-container')
+const cardThree = document.querySelector('.cards-container')
+const cardFour = document.querySelector('.cards-container')
+const cardFive = document.querySelector('.cards-container')
 
 // Using axios.get to send an HTTP GET REQUEST
 axios.get('https://lambda-times-api.herokuapp.com/articles')
- .then((response) => {
-     console.log(response);
+ .then((response) => { 
+    console.log(response);
+     const newOne = response.data.articles.bootstrap;
+     newOne.forEach(element => {
+        cardOne.appendChild(cardCreator(element))
+     }); 
+     
+     const newTwo = response.data.articles.javascript;
+     newTwo.forEach(element => {
+        cardTwo.appendChild(cardCreator(element))
+     }); 
+
+     const newThree = response.data.articles.jquery;
+     newThree.forEach(element => {
+        cardThree.appendChild(cardCreator(element))
+     });
+     
+     const newFour = response.data.articles.node;
+     newFour.forEach(element => {
+        cardFour.appendChild(cardCreator(element))
+     });
+     
+     const newFive = response.data.articles.technology;
+     newFive.forEach(element => {
+        cardFive.appendChild(cardCreator(element))
+     }); 
  });

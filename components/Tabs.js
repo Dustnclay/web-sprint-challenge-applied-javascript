@@ -10,7 +10,7 @@
 //
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
 
-const tabCreator = () => {
+const tabCreator = (data) => {
     // Create div element 
     const tabCreator = document.createElement('div');
 
@@ -18,13 +18,8 @@ const tabCreator = () => {
     tabCreator.classList.add('tab')
 
     // Adding text to the tab div
-    tabCreator.textContent = "topic here"
+    tabCreator.textContent = data
 
-    // tabCreator.src = lambdaUrl;
-
-    // Append tabTopic to parent element topics 
-    // document.querySelector('.topics').appendChild(tabCreator);
-    
     return tabCreator;
 }
 
